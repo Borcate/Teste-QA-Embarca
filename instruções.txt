@@ -1,0 +1,82 @@
+## instruções:
+
+#Testes: 
+- Login;
+- Busca pela rota;
+- Selecionar poltrona;
+- Preencher dados do passageiro.
+
+# Pré-requisitos
+
+Os seguintes sistemas foram instalados.(em janeiro de 2024)
+- [Node.js](https://nodejs.org/en/) (estou usando a versão `v18.16.0`)
+- npm (estou usando a versão `9.8.0` enquanto realizo os testes)
+- [Google Chrome](https://www.google.com/intl/pt_br/chrome/) (estou usando a versão `Versão 120.0.6099.225 (Versão oficial) 64 bits`)
+- [Visual Studio Code](https://code.visualstudio.com/) (estou usando a versão `1.85.2` enquanto realizo os testes) ou alguma outra IDE de sua preferência
+>
+> **Obs. 1:** Ao instalar o Node.js o npm é instalado junto. 🎉
+>
+> **Obs. 2:** Para verificar as versões  Node.js e npm instaladas em seu computador, execute o comando `node --version && npm --version` no seu terminal de linha de comando.
+
+## Instalação e inicialização do [Cypress](https://cypress.io) 🌲
+1. Executar o comando `npm install cypress --save-dev` (ou `npm i cypress@13.6.3 -D` para a versão curta) > para versão utilizada durante os testes
+2. Executar o comando `npx cypress open` para abrir o Cypress pela primeira vez
+3. Selecionar a opção E2E Testing 
+4. Selecionar o browser 
+5. Clicar em Start
+6. Selecionar Specs
+## Documentação ##
+> https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test <
+
+## Npm Scripts 
+    "npx cypress open" -> Para abrir o Test Runner e executar o novo teste em modo interativo
+    "npx cypress run" -> Para executar o novo teste em modo headless
+
+
+## Teste APP Embarca.ai ##
+> Fluxo de teste de compra no App
+- Login
+    Login bem-sucedido
+    Abrir aplicativo em dispositivo Android / iOs
+    Inserir "testeqa@embarca.ai" no campo de e-mail
+    Inserir "Arca123" no campo de senha
+    Clicar no botão "Entrar"
+    Deve exibir a tela inicial para seleção do destino
+
+- Selecionar destino
+    Exibir a tela inicial para seleção do destino
+    Buscar por cidade de saída, deve exibir opções de acordo com a pesquisa realizada 
+    Buscar por cidade de destino, deve exibir opções de acordo com a pesquisa realizada 
+    Selecionar data de saída, deve exibir calendário para seleção de data
+    Não deve permitir selecionar datas inferiores a data de hoje
+    Selecionar data de volta, deve exibir calendário para seleção de data
+    Não deve permitir selecionar datas inferiores a data de saída
+    Clicar no botão "Buscar passagens"
+- Selecionar poltronas
+    Selecionar viagem
+    Clicar no botão "Reservar poltrona", deve tela para seleção de poltrona
+    Selecionar poltronas livres 
+    Clicar no botão "Continuar"
+- Informar dados do passageiro
+    Ao clicar em continuar, deve exibir a tela de resumo da viajem 
+    Informar o CEP do passageiro
+    Informar Nome do passageiro
+    Informar RG do passageiro
+    Clicar no botão "Continuar para o pagamento"
+    Não permitir prosseguir se o campo CEP não estiver preenchido, deve exibir mensagem de alerta
+    Não permitir prosseguir se o campo Nome não estiver preenchido, deve exibir mensagem de alerta
+    Não permitir prosseguir se o campo Documento não estiver preenchido, deve exibir mensagem de alerta
+    Preencher todos os campos, deve permitir prosseguir para próxima tela 
+- Pagamento
+    Tela de pagamento deve exibir opções de pagamento 
+    Opção pix, ao clicar nessa opção deve exibir um código qr code para escanear e efetuar pagamento
+    Opção cartão dee crédito, ao clicar nessa opção deve exibir um campo inserir os dados do cartão de crédito e efetuar pagamento
+    Passar dados de cartão inválidos, ao confirmar deve mensagem de erro 
+    Passar dados de cartão válidos, ao confirmar deve efetuar pagamento com sucesso 
+
+    ## Ferramentas de automatização ##
+    - Appium
+        Pois oferece uma abordagem eficaz para criar testes robustos e compreensíveis. 
+
+
+
